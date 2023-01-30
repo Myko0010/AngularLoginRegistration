@@ -1,0 +1,25 @@
+<button (click)="ShowData()">View Users</button>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">User Type</th>
+      <th scope="col">Password</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let account of users">
+
+      <td>{{ account.username }}</td>
+      <td>{{ account.email }}</td>
+      <td>{{ account.usertype }}</td>
+      <td>{{ account.password }}</td>
+      <td>{{ account.status }}</td>
+    </tr>
+
+  </tbody>
+</table>

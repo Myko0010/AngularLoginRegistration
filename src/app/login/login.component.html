@@ -1,0 +1,92 @@
+<!-- <h2 class="text-center">Login</h2>
+<div class="row">
+<div class="col-m d-4">
+</div>
+<div class="col-m d-4 col-m d-offset-5">
+<div class="jumbotron">
+<form [formGroup]="angForm" (ngSubmit)="postdata(angForm)"
+autocomplete="off" >
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" name="email" formControlName="email"
+autocomplete="off" class="form-control input-sm" placeholder="Email">
+</div>
+<div class="form-group">
+<label for="Password">Password</label>
+<input type="password" name="Password" formControlName="password"
+autocomplete="off" class="form-control input-sm"
+placeholder="Password">
+</div>
+<button type="submit" class="btn btn-success" >Login</button>
+</form>
+</div>
+</div>
+<div class="col-m d-5">
+</div >
+</div> -->
+
+<!-- <button (click)="openDeleteDialog()">Delete the item</button> -->
+<div class="container">
+
+<form class="border p-3 rounded-3" [formGroup]="loginForm" (ngSubmit)="LoginSubmitted()">
+  <div class="row g-0">
+    <div class="col text-center p-2 mb-3 bg-light">
+      <span class="fd-3">Login</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+      />
+      <div class="form-text text-danger" *ngIf="Email?.errors?.['required'] && (Email?.dirty || Email?.touched)">
+        Email is required
+      </div>
+      <div class="form-text text-danger" *ngIf="Email?.errors?.['email'] && (Email?.dirty || Email?.touched)">
+        Invalid Email
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="pwd" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="pwd"
+        formControlName="pwd"
+      />
+      <div class="form-text text-danger" *ngIf="PWD?.errors?.['required'] && (PWD?.dirty || PWD?.touched)">
+        Password is required
+      </div>
+      <div class="form-text text-danger" *ngIf="(PWD?.errors?.['minlength'] || PWD.errors?.['maxlength']) && (PWD?.dirty || PWD?.touched)">
+        Password should be between 6-15
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="d-grid">
+        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary" style="width: 75%;">Login</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col">
+
+    </div>
+    <div class="col">
+      Don't have an Account?
+      <a [routerLink]="['/register']">SignUP</a>
+    </div>
+  </div>
+
+</form>
+
+</div>
